@@ -13,6 +13,15 @@ namespace ConsoleApp1
                 Console.WriteLine("Welcome to the Register!");
                 Console.WriteLine("Enter any key to continue.");
                 GetDateTime();
+                Console.WriteLine("Would you like to see the fruit menu?  ");
+                Console.WriteLine("1 -- Yes");
+                Console.WriteLine("2 -- No");
+                int menu = Convert.ToInt32(Console.ReadLine());
+                if (menu == 1)
+                {
+                    fruitMenu();
+                }
+                
 
                 Console.WriteLine("How many items are you Purchasing?");
                 int response = Convert.ToInt32(Console.ReadLine());
@@ -101,6 +110,7 @@ namespace ConsoleApp1
                 Console.WriteLine("Enter correct amount of cash into machine.");
                 Console.WriteLine("Enter $" + total);
                 Console.WriteLine("Transaction Complete!");
+                
             }
 
             
@@ -111,6 +121,21 @@ namespace ConsoleApp1
             DateTime now = DateTime.Now;
             Console.WriteLine(now);
             Console.ReadLine();
+        }
+
+        public static void fruitMenu()
+        {
+            string path = "C://Users/Cameron White/Documents/Code Louisville/C#/ConsoleApp1/authentication.csv";
+            string[] lines = System.IO.File.ReadAllLines(path);
+            foreach (string line in lines)
+            {
+                string[] columns = line.Split(',');
+                foreach (string column in columns)
+                {
+                    Console.WriteLine(column);
+                }
+            }
+
         }
 
         
