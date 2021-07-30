@@ -44,15 +44,19 @@ namespace ConsoleApp1
             
             Console.WriteLine("Do you have any coupons? (Y/N)");
             String answer = Console.ReadLine();
+            int totalCouponAmount = 0;
             if (answer == "Y")
             {
                 Console.WriteLine("How many coupons do you have?");
                 int coupNum = Convert.ToInt32(Console.ReadLine());
                 int x = 0;
+                
                 while (x < coupNum)
                 {
-                    Console.WriteLine("Enter coupon  # " + x + "percentage: ");
-                    int percent = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter coupon   " + x + " amount: ");
+                    int coupTotal = Convert.ToInt32(Console.ReadLine());
+                    totalCouponAmount = totalCouponAmount + coupTotal;
+                    x++;
                 }
                 
             }
@@ -60,6 +64,26 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Complete Payment!");
             }
+            
+            Console.WriteLine("===============================================");
+            Console.WriteLine("Discounts: $ " + totalCouponAmount);
+            double newSub = total - totalCouponAmount;
+            Console.WriteLine("Subtotal: $" + newSub);
+            double newTax = newSub * 0.06;
+            Console.WriteLine("Tax: $" + newTax);
+            double grandTotal = newTax + newSub;
+            Console.WriteLine("Grand Total: $" + grandTotal);
+            
+
+        }
+
+        public static void checkout(int total)
+        {
+            Console.WriteLine("How would you like to check out?");
+            Console.WriteLine("1 -- Credit Card");
+            Console.WriteLine("2 -- Check");
+            Console.WriteLine("3 -- Cash");
+            int checkoutResponse = Convert.ToInt32(Console.ReadLine());
         }
         
     }
