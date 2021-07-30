@@ -62,7 +62,7 @@ namespace ConsoleApp1
             }
             else
             {
-                Console.WriteLine("Complete Payment!");
+                Console.WriteLine("Continuing...");
             }
             
             Console.WriteLine("===============================================");
@@ -73,17 +73,38 @@ namespace ConsoleApp1
             Console.WriteLine("Tax: $" + newTax);
             double grandTotal = newTax + newSub;
             Console.WriteLine("Grand Total: $" + grandTotal);
-            
+            checkout(grandTotal);
 
         }
 
-        public static void checkout(int total)
+        public static void checkout(double total)
         {
             Console.WriteLine("How would you like to check out?");
             Console.WriteLine("1 -- Credit Card");
             Console.WriteLine("2 -- Check");
             Console.WriteLine("3 -- Cash");
             int checkoutResponse = Convert.ToInt32(Console.ReadLine());
+
+            if (checkoutResponse == 1)
+            {
+                Console.WriteLine("Please follow instructions on pin pad.");
+                Console.WriteLine("Transacting $" + total);
+                Console.WriteLine("Transaction Complete!");
+            }
+
+            if (checkoutResponse == 2)
+            {
+                Console.WriteLine("Please fill check out correctly and enter into blinking check slot");
+                Console.WriteLine("Write Check out for $" + total);
+                Console.WriteLine("Transaction Complete!");
+            }
+
+            if (checkoutResponse == 3)
+            {
+                Console.WriteLine("Enter correct amount of cash into machine.");
+                Console.WriteLine("Enter $" + total);
+                Console.WriteLine("Transaction Complete!");
+            }
         }
         
     }
