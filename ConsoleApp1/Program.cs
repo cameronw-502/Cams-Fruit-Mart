@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace ConsoleApp1
 {
@@ -21,6 +23,9 @@ namespace ConsoleApp1
                 {
                     fruitMenu();
                 }
+                Console.WriteLine("Please enter phone number as XXX-XXX-XXXX: ");
+                String phone = (Console.ReadLine());
+                phoneNumber(phone);
                 
 
                 Console.WriteLine("How many items are you Purchasing?");
@@ -103,6 +108,7 @@ namespace ConsoleApp1
                 Console.WriteLine("Please fill check out correctly and enter into blinking check slot");
                 Console.WriteLine("Write Check out for $" + total);
                 Console.WriteLine("Transaction Complete!");
+                
             }
 
             if (checkoutResponse == 3)
@@ -136,6 +142,16 @@ namespace ConsoleApp1
                 }
             }
 
+        }
+
+        public static void phoneNumber(string phoneNum)
+        {
+            
+
+            if ( !Regex.Match(phoneNum,$"^[1-9]\\d{{2}}-[1-9]\\d{{2}}-\\d{{4}}$" ).Success )
+            {
+                Console.WriteLine( "Invalid phone number");
+            }    
         }
 
         
