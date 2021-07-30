@@ -52,7 +52,7 @@ namespace ConsoleApp1
                 while (x < coupNum)
                 {
                     Console.WriteLine("Enter coupon  # " + x + "percentage: ");
-                    int percent
+                    int percent = Convert.ToInt32(Console.ReadLine());
                 }
                 
             }
